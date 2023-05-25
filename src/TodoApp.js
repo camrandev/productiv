@@ -15,7 +15,9 @@ import EditableTodoList from "./EditableTodoList";
  * App -> TodoApp -> { TodoForm, EditableTodoList }
  */
 
-function TodoApp() {
+function TodoApp({initialTodos}) {
+//list of to do live here
+const [todos, setTodos] = useState(initialTodos)
 
   /** add a new todo to list */
   function create(newTodo) {

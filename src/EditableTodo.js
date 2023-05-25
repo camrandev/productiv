@@ -12,7 +12,7 @@ import TodoForm from "./TodoForm";
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
  */
 
-function EditableTodo() {
+function EditableTodo({todo, update, remove}) {
 
   /** Toggle if this is being edited */
   function toggleEdit() { }
@@ -24,10 +24,11 @@ function EditableTodo() {
   function handleSave(formData) { }
 
   return (
+    //need to conditionally render these...based on what?
       <div className="EditableTodo">
 
                 EITHER
-
+{/* going to need to pass down the save and the todo to the form */}
                 <TodoForm />
 
                 OR

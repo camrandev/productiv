@@ -11,7 +11,9 @@ import EditableTodo from "./EditableTodo";
  * TodoApp -> EditableTodoList -> [ EditableTodo, ... ]
  */
 
-function EditableTodoList() {
+function EditableTodoList({todos, update, remove}) {
+
+  //needs a render function similarly to what I did in the boxes project
   return (
       <div>
         {/*   FIXME  */}
