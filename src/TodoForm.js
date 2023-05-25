@@ -10,14 +10,17 @@ import React, { useState } from "react";
  */
 
 function TodoForm({
-  initialFormData = { id: "", title: "", description: "", priority: "" },
+  initialFormData = { id: "", title: "", description: "", priority: 1 },
   handleSave,
 }) {
   const [formData, setFormData] = useState(initialFormData);
 
   /** Update form input. */
   function handleChange(evt) {
+    evt.preventDefault();
+
     const { name, value } = evt.target;
+    console.log(formData)
     setFormData((formData) => ({
       ...formData,
       [name]: value,
@@ -40,7 +43,7 @@ function TodoForm({
           className="form-control"
           placeholder="Title"
           onChange={handleChange}
-          value={initialFormData.title}
+          value={formData.title}
           aria-label="Title"
         />
       </div>
@@ -52,7 +55,7 @@ function TodoForm({
           className="form-control"
           placeholder="Description"
           onChange={handleChange}
-          value={initialFormData.description}
+          value={formData.description}
           aria-label="Description"
         />
       </div>

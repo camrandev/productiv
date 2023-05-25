@@ -9,6 +9,9 @@ import TodoForm from "./TodoForm";
  * - update(): fn to call to update a todo
  * - remove(): fn to call to remove a todo
  *
+ * state
+ * - isEditing: boolean, is this todo currently being edited
+ *
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
  */
 
@@ -17,7 +20,9 @@ function EditableTodo({ todo, update, remove }) {
   const { id, title, description, priority } = todo
 
   /** Toggle if this is being edited */
-  function toggleEdit() {}
+  function toggleEdit() {
+    setIsEditing(!isEditing)
+  }
 
   /** Call remove fn passed to this. */
   function handleDelete() {
@@ -25,12 +30,15 @@ function EditableTodo({ todo, update, remove }) {
   }
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
-  function handleSave(formData) {}
+  function handleSave(formData) {
+    toggleEdit()
+    update(formData)
+  }
 
   return (
     //need to conditionally render these...based on what?
     <div className="EditableTodo">
-      {isEditing && <TodoForm />}
+      {isEditing && <TodoForm initialFormData={todo} handleSave={handleSave} />}
       {/* going to need to pass down the save and the todo to the form */}
       {!isEditing &&
       <div className="mb-3">
