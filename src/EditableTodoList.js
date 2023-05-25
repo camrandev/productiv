@@ -19,7 +19,6 @@ function EditableTodoList({todos, update, remove}) {
         {todos.map((todo) => (
           <EditableTodo
             key={todo.id}
-            id={todo.id}
             todo={todo}
             update={update}
             remove={remove}

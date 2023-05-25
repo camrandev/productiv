@@ -17,10 +17,7 @@ function TodoForm({
 
   /** Update form input. */
   function handleChange(evt) {
-    evt.preventDefault();
-
     const { name, value } = evt.target;
-    console.log(formData)
     setFormData((formData) => ({
       ...formData,
       [name]: value,
@@ -68,7 +65,7 @@ function TodoForm({
           <select
             id="newTodo-priority"
             name="priority"
-            value={initialFormData.priority}
+            value={formData.priority}
             onChange={handleChange}
             className="form-control form-control-sm d-inline-flex"
           >
