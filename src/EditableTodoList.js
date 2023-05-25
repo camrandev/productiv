@@ -13,13 +13,26 @@ import EditableTodo from "./EditableTodo";
 
 function EditableTodoList({todos, update, remove}) {
 
+  function renderTodos() {
+    return (
+      <ul>
+        {todos.map((todo) => (
+          <EditableTodo
+            key={todo.id}
+            id={todo.id}
+            todo={todo}
+            update={update}
+            remove={remove}
+          />
+        ))}
+      </ul>
+    );
+  }
+
   //needs a render function similarly to what I did in the boxes project
   return (
       <div>
-        {/*   FIXME  */}
-        <EditableTodo />
-        <EditableTodo />
-        <EditableTodo />
+        {renderTodos()}
       </div>
   );
 }
