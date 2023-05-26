@@ -17,11 +17,11 @@ import TodoForm from "./TodoForm";
 
 function EditableTodo({ todo, update, remove }) {
   const [isEditing, setIsEditing] = useState(false);
-  const { id, title, description, priority } = todo
+  const { id, title, description, priority } = todo;
 
   /** Toggle if this is being edited */
   function toggleEdit() {
-    setIsEditing(!isEditing)
+    setIsEditing(!isEditing);
   }
 
   /** Call remove fn passed to this. */
@@ -31,8 +31,8 @@ function EditableTodo({ todo, update, remove }) {
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
   function handleSave(formData) {
-    toggleEdit()
-    update(formData)
+    toggleEdit();
+    update(formData);
   }
 
   return (
@@ -40,24 +40,30 @@ function EditableTodo({ todo, update, remove }) {
     <div className="EditableTodo">
       {isEditing && <TodoForm initialFormData={todo} handleSave={handleSave} />}
       {/* going to need to pass down the save and the todo to the form */}
-      {!isEditing &&
-      <div className="mb-3">
-        <div className="float-end text-sm-end">
-          <button
-            className="EditableTodo-toggle btn-link btn btn-sm"
-            onClick={toggleEdit}
-          >
-            Edit
-          </button>
-          <button
-            className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
-            onClick={handleDelete}
-          >
-            Del
-          </button>
+      {!isEditing && (
+        <div className="mb-3">
+          <div className="float-end text-sm-end">
+            <button
+              className="EditableTodo-toggle btn-link btn btn-sm"
+              onClick={toggleEdit}
+            >
+              Edit
+            </button>
+            <button
+              className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+              onClick={handleDelete}
+            >
+              Del
+            </button>
+          </div>
+          <Todo
+            id={id}
+            title={title}
+            description={description}
+            priority={priority}
+          />
         </div>
-        <Todo id={id} title={title} description={description} priority={priority} />
-      </div>}
+      )}
     </div>
   );
 }

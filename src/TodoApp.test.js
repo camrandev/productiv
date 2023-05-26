@@ -1,10 +1,10 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import App from "./App";
+import TodoApp from "./TodoApp";
 
 describe('Snapshot test', () => {
   it('renders correctly', () => {
-    const { container } = render(<App />);
+    const { container } = render(<TodoApp />);
     expect(container.firstChild).toMatchSnapshot();
   });
 });
@@ -24,4 +24,3 @@ describe("productiv app", function () {
     expect(result.queryByText("Click here for an inspirational quøte!")).toBeInTheDocument();
   });
 });
-

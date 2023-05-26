@@ -11,8 +11,7 @@ import EditableTodo from "./EditableTodo";
  * TodoApp -> EditableTodoList -> [ EditableTodo, ... ]
  */
 
-function EditableTodoList({todos, update, remove}) {
-
+function EditableTodoList({ todos, update, remove }) {
   function renderTodos() {
     return (
       <ul>
@@ -28,12 +27,7 @@ function EditableTodoList({todos, update, remove}) {
     );
   }
 
-  //needs a render function similarly to what I did in the boxes project
-  return (
-      <div>
-        {renderTodos()}
-      </div>
-  );
+  return <div>{renderTodos()}</div>;
 }
 
 export default EditableTodoList;
