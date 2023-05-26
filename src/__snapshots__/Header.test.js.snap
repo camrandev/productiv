@@ -15,6 +15,13 @@ exports[`Snapshot test renders correctly 1`] = `
     >
       The best name in todo list management.
     </p>
+    <div
+      class="text-end"
+    >
+      <button>
+        Click here for an inspirational quøte!
+      </button>
+    </div>
   </div>
 </header>
 `;

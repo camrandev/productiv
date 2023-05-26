@@ -1,6 +1,16 @@
 import React, { useState } from "react";
-const axios = window.axios
-
+import Quote from "./Quote"
+const axios = window.axios;
+/** QuoteGetter
+ *
+ * No Props
+ *
+ * State:
+ * - quoteText: the actual text of the quote
+ * - buttonText: the text to display on the button
+ *
+ * App -> QuoteGetter -> Quote
+ **/
 function QuoteGetter() {
   const initialButtonText = "Click here for an inspirational quøte!";
   const [quote, setQuote] = useState("");
@@ -11,21 +21,16 @@ function QuoteGetter() {
     const q = await axios.get(
       "https://inspo-quotes-api.herokuapp.com/quotes/random"
     );
-    console.log(q);
+
+    const quoteText = q.data.quote.text;
     setButtonText("Nu quøte");
-    setQuote(q.data.quote.text);
+    setQuote(quoteText);
   }
-  //need a function to access the quote from the API
-  //need to import axios
-
-  //needs to render the following, conditionally
-
-  //render a quote IF one exists
-  //render the button with conditional text
 
   return (
     <div className="text-end">
-      {quote !== "" && <p>{quote}</p>}
+      {quote !== "" && <Quote quoteText={quote}/>}
+      {/* TODO: add proper colors here */}
       <button onClick={getQuote}>{buttonText}</button>
     </div>
   );
