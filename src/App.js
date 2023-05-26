@@ -2,7 +2,7 @@ import React from "react";
 import TodoApp from "./TodoApp";
 import Footer from "./Footer";
 import dummyData from "./dummyData";
-import Header from "./Header"
+import Header from "./Header";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
@@ -17,7 +17,6 @@ function App() {
       <Header />
       <section className="container mt-4">
         <TodoApp initialTodos={dummyData} />
-
         <Footer />
       </section>
     </main>

@@ -24,6 +24,8 @@ function TodoApp({ initialTodos }) {
   function create(newTodo) {
     let nTodo = { ...newTodo, id: uuid() };
     //new array here creates new identity, so callback pattern is not needed here
+    //however, using the callback pattern more explicitly states that we are updaing
+    //our existing list of todos
     setTodos((todos) => [...todos, nTodo]);
   }
 
@@ -43,16 +45,16 @@ function TodoApp({ initialTodos }) {
     <main className="TodoApp">
       <div className="row">
         <div className="col-md-6">
-          {todos.length > 0 && (
+          {todos?.length > 0 && (
             <EditableTodoList todos={todos} update={update} remove={remove} />
           )}
-          {todos.length === 0 && (
+          {todos?.length === 0 && (
             <span className="text-muted">You have no todos.</span>
           )}
         </div>
 
         <div className="col-md-6">
-          {todos.length > 0 && (
+          {todos?.length > 0 && (
             <section className="mb-4">
               <h3>Top Todo</h3>
               <TopTodo todos={todos} />
