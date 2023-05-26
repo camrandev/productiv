@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot test renders correctly 1`] = `
+<header
+  class="container-fluid pt-4 pb-1"
+>
+  <div
+    class="container"
+  >
+    <h1>
+      Prøductïv
+    </h1>
+    <p
+      class="lead"
+    >
+      The best name in todo list management.
+    </p>
+  </div>
+</header>
+`;
