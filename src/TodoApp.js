@@ -23,6 +23,7 @@ function TodoApp({ initialTodos }) {
   /** add a new todo to list */
   function create(newTodo) {
     let nTodo = { ...newTodo, id: uuid() };
+    //new array here creates new identity, so callback pattern is not needed here
     setTodos((todos) => [...todos, nTodo]);
   }
 
